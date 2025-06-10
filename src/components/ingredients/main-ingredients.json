@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_ingredients_main_ingredients",
+  "info": {
+    "displayName": "main_ingredients",
+    "icon": "seed"
+  },
+  "options": {},
+  "attributes": {
+    "ingredients": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

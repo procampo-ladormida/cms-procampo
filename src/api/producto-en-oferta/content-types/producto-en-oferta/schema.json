@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "producto_en_ofertas",
+  "info": {
+    "singularName": "producto-en-oferta",
+    "pluralName": "producto-en-ofertas",
+    "displayName": "producto en oferta"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "percentage": {
+      "type": "integer",
+      "required": true
+    },
+    "producto": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::producto.producto",
+      "inversedBy": "producto_en_ofertas"
+    },
+    "ofertas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::oferta.oferta",
+      "mappedBy": "producto_en_ofertas"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "productos",
+  "info": {
+    "singularName": "producto",
+    "pluralName": "productos",
+    "displayName": "producto"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "short_description": {
+      "type": "text",
+      "required": true
+    },
+    "higher_price": {
+      "type": "decimal",
+      "required": true
+    },
+    "lower_price": {
+      "type": "decimal",
+      "required": true
+    },
+    "presentation": {
+      "type": "string",
+      "required": true
+    },
+    "detailed_description": {
+      "type": "text",
+      "required": true
+    },
+    "ingredients": {
+      "type": "component",
+      "component": "ingredients.main-ingredients",
+      "repeatable": true
+    },
+    "specifications": {
+      "type": "component",
+      "component": "specifications.specifications",
+      "repeatable": true
+    },
+    "benefits": {
+      "type": "component",
+      "component": "benefits.benefits",
+      "repeatable": false
+    },
+    "instructions_for_use": {
+      "type": "string"
+    },
+    "categoria": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::categoria.categoria"
+    },
+    "producto_en_ofertas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::producto-en-oferta.producto-en-oferta",
+      "mappedBy": "producto"
+    }
+  }
+}

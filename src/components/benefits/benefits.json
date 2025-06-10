@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_benefits_benefits",
+  "info": {
+    "displayName": "benefits",
+    "icon": "handHeart"
+  },
+  "options": {},
+  "attributes": {
+    "benefits": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

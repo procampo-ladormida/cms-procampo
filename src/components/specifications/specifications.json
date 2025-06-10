@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_specifications_specifications",
+  "info": {
+    "displayName": "specifications",
+    "icon": "heart"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
