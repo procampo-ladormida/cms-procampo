@@ -61,7 +61,7 @@
     "benefits": {
       "type": "component",
       "component": "benefits.benefits",
-      "repeatable": false
+      "repeatable": true
     },
     "instructions_for_use": {
       "type": "string"
@@ -76,6 +76,12 @@
       "relation": "oneToMany",
       "target": "api::producto-en-oferta.producto-en-oferta",
       "mappedBy": "producto"
+    },
+    "subcategoria": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subcategoria.subcategoria",
+      "inversedBy": "productos"
     }
   }
 }

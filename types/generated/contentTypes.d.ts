@@ -486,7 +486,7 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    benefits: Schema.Attribute.Component<'benefits.benefits', false>;
+    benefits: Schema.Attribute.Component<'benefits.benefits', true>;
     categoria: Schema.Attribute.Relation<
       'oneToOne',
       'api::categoria.categoria'
@@ -522,6 +522,10 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
       'specifications.specifications',
       true
     >;
+    subcategoria: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::subcategoria.subcategoria'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -555,6 +559,7 @@ export interface ApiSubcategoriaSubcategoria
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    productos: Schema.Attribute.Relation<'oneToMany', 'api::producto.producto'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'name'>;
     updatedAt: Schema.Attribute.DateTime;
