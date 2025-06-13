@@ -27,12 +27,6 @@
     },
     "description": {
       "type": "text"
-    },
-    "productos": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::producto.producto",
-      "mappedBy": "subcategoria"
     }
   }
 }
