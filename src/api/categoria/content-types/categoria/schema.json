@@ -29,6 +29,12 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "subcategorias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subcategoria.subcategoria",
+      "mappedBy": "categoria"
     }
   }
 }
