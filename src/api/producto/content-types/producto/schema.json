@@ -76,6 +76,12 @@
       "relation": "oneToMany",
       "target": "api::producto-en-oferta.producto-en-oferta",
       "mappedBy": "producto"
+    },
+    "subcategoria": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subcategoria.subcategoria",
+      "inversedBy": "productos"
     }
   }
 }
