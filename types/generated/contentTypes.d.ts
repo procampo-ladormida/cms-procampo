@@ -522,6 +522,7 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
       'specifications.specifications',
       true
     >;
+    stock: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     subcategoria: Schema.Attribute.Relation<
       'manyToOne',
       'api::subcategoria.subcategoria'

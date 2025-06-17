@@ -82,6 +82,10 @@
       "relation": "manyToOne",
       "target": "api::subcategoria.subcategoria",
       "inversedBy": "productos"
+    },
+    "stock": {
+      "type": "integer",
+      "default": 0
     }
   }
 }
