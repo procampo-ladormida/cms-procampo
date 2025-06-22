@@ -20,7 +20,7 @@
       "targetField": "title",
       "required": true
     },
-    "active": {
+    "featured_offer": {
       "type": "boolean",
       "default": false
     },
