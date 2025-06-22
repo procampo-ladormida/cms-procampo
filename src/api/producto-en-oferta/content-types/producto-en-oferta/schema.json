@@ -30,6 +30,16 @@
     "label": {
       "type": "string",
       "required": true
+    },
+    "applies_to": {
+      "type": "enumeration",
+      "required": true,
+      "default": "ambos",
+      "enum": [
+        "mayorista",
+        "minorista",
+        "ambos"
+      ]
     }
   }
 }
