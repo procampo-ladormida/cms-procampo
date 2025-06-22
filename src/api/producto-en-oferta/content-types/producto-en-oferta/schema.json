@@ -26,6 +26,10 @@
       "relation": "manyToMany",
       "target": "api::oferta.oferta",
       "mappedBy": "producto_en_ofertas"
+    },
+    "label": {
+      "type": "string",
+      "required": true
     }
   }
 }
