@@ -444,6 +444,37 @@ export interface ApiOfertaOferta extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPaginaOfertaPaginaOferta extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_ofertas';
+  info: {
+    displayName: 'pagina oferta';
+    pluralName: 'pagina-ofertas';
+    singularName: 'pagina-oferta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-oferta.pagina-oferta'
+    > &
+      Schema.Attribute.Private;
+    orange_field: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductoEnOfertaProductoEnOferta
   extends Struct.CollectionTypeSchema {
   collectionName: 'producto_en_ofertas';
@@ -1080,6 +1111,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::categoria.categoria': ApiCategoriaCategoria;
       'api::oferta.oferta': ApiOfertaOferta;
+      'api::pagina-oferta.pagina-oferta': ApiPaginaOfertaPaginaOferta;
       'api::producto-en-oferta.producto-en-oferta': ApiProductoEnOfertaProductoEnOferta;
       'api::producto.producto': ApiProductoProducto;
       'api::subcategoria.subcategoria': ApiSubcategoriaSubcategoria;
