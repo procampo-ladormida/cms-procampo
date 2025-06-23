@@ -33,12 +33,10 @@
     },
     "applies_to": {
       "type": "enumeration",
-      "required": true,
-      "default": "ambos",
       "enum": [
-        "mayorista",
-        "minorista",
-        "ambos"
+        "Mayorista",
+        "Minorista",
+        "Mayorista | Minorista"
       ]
     }
   }

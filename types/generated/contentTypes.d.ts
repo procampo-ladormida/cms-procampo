@@ -489,10 +489,8 @@ export interface ApiProductoEnOfertaProductoEnOferta
   };
   attributes: {
     applies_to: Schema.Attribute.Enumeration<
-      ['mayorista', 'minorista', 'ambos']
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'ambos'>;
+      ['Mayorista', 'Minorista', 'Mayorista | Minorista']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
