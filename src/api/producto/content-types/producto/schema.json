@@ -86,6 +86,9 @@
     "stock": {
       "type": "integer",
       "default": 0
+    },
+    "minimum_quantity_wholesaler": {
+      "type": "integer"
     }
   }
 }

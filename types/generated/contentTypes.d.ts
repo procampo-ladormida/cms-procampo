@@ -546,6 +546,7 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     lower_price: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    minimum_quantity_wholesaler: Schema.Attribute.Integer;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     presentation: Schema.Attribute.String & Schema.Attribute.Required;
     producto_en_ofertas: Schema.Attribute.Relation<
