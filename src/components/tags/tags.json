@@ -5,6 +5,11 @@
     "icon": "collapse"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "tag": {
+      "type": "string",
+      "required": true
+    }
+  },
   "config": {}
 }

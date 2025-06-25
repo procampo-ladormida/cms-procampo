@@ -40,7 +40,9 @@ export interface TagsTags extends Struct.ComponentSchema {
     displayName: 'tags';
     icon: 'collapse';
   };
-  attributes: {};
+  attributes: {
+    tag: Schema.Attribute.String & Schema.Attribute.Required;
+  };
 }
 
 declare module '@strapi/strapi' {
