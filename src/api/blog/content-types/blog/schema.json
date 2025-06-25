@@ -57,6 +57,10 @@
       "relation": "manyToOne",
       "target": "api::autor-del-blog.autor-del-blog",
       "inversedBy": "blogs"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "required": true
     }
   }
 }
