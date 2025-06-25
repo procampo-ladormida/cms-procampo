@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "autor_del_blogs",
+  "info": {
+    "singularName": "autor-del-blog",
+    "pluralName": "autor-del-blogs",
+    "displayName": "Autor del blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "full_name": {
+      "type": "string",
+      "required": true
+    },
+    "biography": {
+      "type": "string",
+      "required": true
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog",
+      "mappedBy": "autor_del_blog"
+    }
+  }
+}

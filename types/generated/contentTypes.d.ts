@@ -373,6 +373,110 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAutorDelBlogAutorDelBlog
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'autor_del_blogs';
+  info: {
+    displayName: 'Autor del blog';
+    pluralName: 'autor-del-blogs';
+    singularName: 'autor-del-blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    avatar: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    biography: Schema.Attribute.String & Schema.Attribute.Required;
+    blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    full_name: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::autor-del-blog.autor-del-blog'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
+  collectionName: 'blogs';
+  info: {
+    displayName: 'blog';
+    pluralName: 'blogs';
+    singularName: 'blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    autor_del_blog: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::autor-del-blog.autor-del-blog'
+    >;
+    categoria_del_blog: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::categoria-del-blog.categoria-del-blog'
+    >;
+    content: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    read_time: Schema.Attribute.Integer & Schema.Attribute.Required;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    tag: Schema.Attribute.Component<'tags.tags', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCategoriaDelBlogCategoriaDelBlog
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'categoria_del_blogs';
+  info: {
+    displayName: 'categoria del blog';
+    pluralName: 'categoria-del-blogs';
+    singularName: 'categoria-del-blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::categoria-del-blog.categoria-del-blog'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoriaCategoria extends Struct.CollectionTypeSchema {
   collectionName: 'categorias';
   info: {
@@ -1116,6 +1220,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::autor-del-blog.autor-del-blog': ApiAutorDelBlogAutorDelBlog;
+      'api::blog.blog': ApiBlogBlog;
+      'api::categoria-del-blog.categoria-del-blog': ApiCategoriaDelBlogCategoriaDelBlog;
       'api::categoria.categoria': ApiCategoriaCategoria;
       'api::oferta.oferta': ApiOfertaOferta;
       'api::pagina-oferta.pagina-oferta': ApiPaginaOfertaPaginaOferta;

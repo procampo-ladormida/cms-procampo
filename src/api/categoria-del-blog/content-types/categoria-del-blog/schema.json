@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categoria_del_blogs",
+  "info": {
+    "singularName": "categoria-del-blog",
+    "pluralName": "categoria-del-blogs",
+    "displayName": "categoria del blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog",
+      "mappedBy": "categoria_del_blog"
+    }
+  }
+}

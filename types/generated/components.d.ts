@@ -34,12 +34,22 @@ export interface SpecificationsSpecifications extends Struct.ComponentSchema {
   };
 }
 
+export interface TagsTags extends Struct.ComponentSchema {
+  collectionName: 'components_tags_tags';
+  info: {
+    displayName: 'tags';
+    icon: 'collapse';
+  };
+  attributes: {};
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'benefits.benefits': BenefitsBenefits;
       'ingredients.main-ingredients': IngredientsMainIngredients;
       'specifications.specifications': SpecificationsSpecifications;
+      'tags.tags': TagsTags;
     }
   }
 }
